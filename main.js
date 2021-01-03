@@ -25,48 +25,48 @@ client.on('message', message => {
 
 		const channel = member.guild.channels.find(channel => channel.name == "willkommen");
 		if (!channel) return;
-	
+
 		channel.send(`Wilkommen auf dem Server ${member}, bitte lese dir die Regeln durch!`);
-	
+
 	});
 
 	let channel = message.channel;
 	const user = message.mentions.users.first();
 
-	if(message.author.bot) return;
-    if(!db[message.author.id]) db[message.author.id] = {
+	if (message.author.bot) return;
+	if (!db[message.author.id]) db[message.author.id] = {
 
-        xp: 0,
-        level: 0,
+		xp: 0,
+		level: 0,
 
-    };
+	};
 
-    db[message.author.id].xp + Math.floor(Math.random() *10) +50
-    let userInfo = db[message.author.id];
-    if(userInfo.xp > 100) {
-        
-        userInfo.level++
-        userInfo.xp = 0
-        message.channel.send(`Glückwunsch, du bist ein Level aufgestiegen!`);
+	db[message.author.id].xp + Math.floor(Math.random() * 10) + 50
+	let userInfo = db[message.author.id];
+	if (userInfo.xp > 100) {
 
-    }
-
-    if(message.content.toLowerCase() == 'hlevel') {
-
-        let userInfo = db[message.author.id];
-        let embed = new Discord.MessageEmbed()
-            .setColor("WHITE")
-            .setTitle(`${user}`)
-            .addField("Dein Level", userInfo.level)
-            .addField("Deine XP", userInfo.xp + "/100")
-        message.channel.send(embed)
+		userInfo.level++
+		userInfo.xp = 0
+		message.channel.send(`Glückwunsch, du bist ein Level aufgestiegen!`);
 
 	}
-	
 
-    fs.writeFile("./database.json", JSON.stringify(db), (x) => {
-        if (x) console.error(X)
-    });
+	if (message.content.toLowerCase() == 'hlevel') {
+
+		let userInfo = db[message.author.id];
+		let embed = new Discord.MessageEmbed()
+			.setColor("WHITE")
+			.setTitle(`${user}`)
+			.addField("Dein Level", userInfo.level)
+			.addField("Deine XP", userInfo.xp + "/100")
+		message.channel.send(embed)
+
+	}
+
+
+	fs.writeFile("./database.json", JSON.stringify(db), (x) => {
+		if (x) console.error(X)
+	});
 
 	if (message.content.toLowerCase() == 'hhelp') {
 		let embed = new Discord.MessageEmbed()
@@ -128,6 +128,7 @@ client.on('message', message => {
 			.addField("Discord.js Version", 'V12')
 			.addField("Node.js Version", "v14.15.0")
 			.addField("Hilfe", 'Hilfe zu den Befehlen des Hydrablades Bots bekommst du mit hHelp.')
+			.addField("Test", 'Test bestanden')
 		message.channel.send(embed)
 	}
 
