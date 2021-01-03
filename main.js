@@ -13,9 +13,6 @@ const client = new Discord.Client(); // Create Discord client for connection to 
 const fs = require("fs");
 let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 
-const user = message.mentions.users.first();
-
-
 client.on('ready', () => {
 	console.log('I am ready!');
 });
@@ -32,6 +29,7 @@ client.on('guildMemberAdd', member => {
 client.on('message', message => {
 
 	let channel = message.channel;
+	let user = message.mentions.users.first();
 
 	if(message.author.bot) return;
     if(!db[message.author.id]) db[message.author.id] = {
