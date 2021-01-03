@@ -159,29 +159,6 @@ client.on('message', message => {
 		}
 	}
 
-	if (message.content.startsWith('hwarn')) {
-		const user = message.mentions.user.first();
-		if (user) {
-			const member = message.guild.member(user);
-			if (member) {
-				member
-					.console.warn('Spam')
-					.then(() => {
-						message.reply(`${user} wurde wegen Spam verwarnt`);
-					})
-					.catch(err => {
-						message.reply(`${user} konnte nicht verwarnt werden`);
-						console.error(err);
-					});
-			}
-			else {
-				message.reply('Dieser User ist nicht Mitglied dieses Servers.');
-			}
-		}
-		else {
-			message.reply('Welchen User möchtest du verwarnen?');
-		}
-	}
 });
 
 
