@@ -17,19 +17,21 @@ client.on('ready', () => {
 	console.log('I am ready!');
 });
 
-client.on('guildMemberAdd', member => {
 
-	const channel = member.guild.channels.find(channel => channel.name == "willkommen");
-	if (!channel) return;
-
-	channel.send(`Wilkommen auf dem Server ${member}, bitte lese dir die Regeln durch!`);
-
-});
 
 client.on('message', message => {
 
+	client.on('guildMemberAdd', member => {
+
+		const channel = member.guild.channels.find(channel => channel.name == "willkommen");
+		if (!channel) return;
+	
+		channel.send(`Wilkommen auf dem Server ${member}, bitte lese dir die Regeln durch!`);
+	
+	});
+
 	let channel = message.channel;
-	let user = message.mentions.users.first();
+	const user = message.mentions.users.first();
 
 	if(message.author.bot) return;
     if(!db[message.author.id]) db[message.author.id] = {
@@ -45,7 +47,7 @@ client.on('message', message => {
         
         userInfo.level++
         userInfo.xp = 0
-        message.channel.send(`Glückwunsch ${user.tag}, du bist ein Level aufgestiegen!`);
+        message.channel.send(`Glückwunsch, du bist ein Level aufgestiegen!`);
 
     }
 
@@ -54,7 +56,7 @@ client.on('message', message => {
         let userInfo = db[message.author.id];
         let embed = new Discord.MessageEmbed()
             .setColor("WHITE")
-            .setTitle(`${user.tag}`)
+            .setTitle(`${user}`)
             .addField("Dein Level", userInfo.level)
             .addField("Deine XP", userInfo.xp + "/100")
         message.channel.send(embed)
