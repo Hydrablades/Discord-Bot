@@ -41,12 +41,12 @@ client.on('message', message => {
 
     };
 
-    db[message.author.id].xp = Math.floor(Math.random() *10) +50
+    db[message.author.id].xp
     let userInfo = db[message.author.id];
     if(userInfo.xp > 100) {
         
         userInfo.level++
-        userInfo.xp = 0
+        userInfo.xp = Math.floor(Math.random() *10) +50
         message.channel.send(`Glückwunsch, du bist ein Level aufgestiegen!`);
 
     }
