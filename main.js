@@ -9,7 +9,6 @@ const TOKEN = envVariables.TOKEN
 
 const client = new Discord.Client();
 
-const config = require('./config.json');
 const fs = require("fs");
 let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 
@@ -165,6 +164,7 @@ client.on('message', message => {
 			.setTitle("Über Hydrablades")
 			.setDescription('Alle wichtigen Infos über den Hydrablades Bot.')
 			.addField("Bot Version", 'Beta 1.0.0')
+			.addField("Source Code", "https://github.com/Hydrablades/Discord-Bot")
 			.addField("Discord.js Version", 'V12')
 			.addField("Node.js Version", "v14.15.0")
 			.addField("Hilfe", 'Hilfe zu den Befehlen des Hydrablades Bots bekommst du mit hHelp.')
