@@ -1,0 +1,14 @@
+{
+  "name": "hydrablades-bot",
+  "version": "1.0.0",
+  "description": "A discord Bot created by Hydrablades",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robin Lenz",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}
