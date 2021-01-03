@@ -7,6 +7,8 @@ require('dotenv').config();
 const envVariables = process.env;
 const TOKEN = envVariables.TOKEN
 
+// Create Discord client for connection to Discord
+// 
 const client = new Discord.Client();
 
 const fs = require("fs");
@@ -224,4 +226,7 @@ client.on('message', message => {
 	}
 });
 
+
+// And finally connect to Discord
+// 
 client.login(TOKEN);
