@@ -3,16 +3,17 @@ const Discord = require('discord.js');
 require('dotenv').config();
 
 // Loading discord token from .env file
-// 
 const envVariables = process.env;
 const TOKEN = envVariables.TOKEN
 
-// Create Discord client for connection to Discord
-// 
-const client = new Discord.Client();
+
+const client = new Discord.Client(); // Create Discord client for connection to Discord
+
 
 const fs = require("fs");
 let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
+
+const user = message.mentions.users.first();
 
 
 client.on('ready', () => {
@@ -32,83 +33,40 @@ client.on('message', message => {
 
 	let channel = message.channel;
 
-	if (message.author.bot) return;
-    if (!db[message.author.id]) db[message.author.id] = {
+	if(message.author.bot) return;
+    if(!db[message.author.id]) db[message.author.id] = {
+
         xp: 0,
-        level: 0
+        level: 0,
+
     };
-    db[message.author.id].xp++;
+
+    db[message.author.id].xp = Math.floor(Math.random() *10) +50
     let userInfo = db[message.author.id];
-    if (userInfo.xp > 15) {
-        const user = message.mentions.user.first();
+    if(userInfo.xp > 100) {
+        
         userInfo.level++
         userInfo.xp = 0
-        message.channel.send(`Glückwunsch ${user}, du bist ein Level aufgestiegen!`)
+        message.channel.send(`Glückwunsch ${user.tag}, du bist ein Level aufgestiegen!`);
+
     }
 
-    if (message.content.toLocaleLowerCase() == 'hlevel') {
+    if(message.content.toLowerCase() == 'hlevel') {
+
         let userInfo = db[message.author.id];
-        let member = message.mentions.members.first();
         let embed = new Discord.MessageEmbed()
-            .setColor(0x4286f4)
-            .setTitle(`${member}`)
-            .addField("Dein Level:", userInfo.level)
-            .addField("Deine XP", userInfo.xp + "/15");
+            .setColor("WHITE")
+            .setTitle(`${user.tag}`)
+            .addField("Dein Level", userInfo.level)
+            .addField("Deine XP", userInfo.xp + "/100")
+        message.channel.send(embed)
 
-        if (!member) return message.channel.send(embed)
-        let memberInfo = db[member.id]
-        let embed2 = new Discord.MessageEmbed()
-            .setColor(0x4286f4)
-            .addField("Level", memberInfo.level)
-            .addField("XP", memberInfo.xp + "/100")
-        message.channel.send(embed2)
-    }
+	}
+	
+
     fs.writeFile("./database.json", JSON.stringify(db), (x) => {
-        if (x) console.error(x)
+        if (x) console.error(X)
     });
-
-// let score;
-	// if (message.guild) {
-	// 	score = client.getScore.get(message.author.id, message.guild.id);
-	// 	if (!score) {
-	// 		score = {
-	// 			id: `${message.guild.id}-${message.author.id}`,
-	// 			user: message.author.id,
-	// 			guild: message.guild.id,
-	// 			points: 0,
-	// 			level: 1,
-	// 		};
-	// 	}
-
-	// 	const xpAdd = Math.floor(Math.random() * 10) + 50;
-	// 	const curxp = score.points;
-	// 	const curlvl = score.level;
-	// 	const nxtLvl = score.level * 100;
-	// 	score.points = curxp + xpAdd;
-	// 	if (nxtLvl <= curlvl) {
-	// 		score.level = curlvl + 1;
-	// 		const lvlup = new Discord.MessageEmbed()
-	// 			.setAuthor(
-	// 				`Glückwunsch ${message.author.username}`,
-	// 				message.author.displayAvatarURL()
-	// 			)
-	// 			.setTitle("Du bist ein Level aufgestiegen!")
-	// 			.setColor("Green")
-	// 			.addField("Dein Level: ", curlvl + 1);
-	// 		message.channel.send(lvlup)
-	// 		client.setScore.run(score)
-	// 	}
-	// 	// if(message.content.toLowerCase() == 'hlevel') {
-	// 	// 	let embed = new Discord.MessageEmbed()
-	// 	// 		.setColor("RANDOM")
-	// 	// 		.setTitle("Level")
-	// 	// 		.setDescription("Infos zu deinem aktuellen Level")
-	// 	// 		.addField("Dein Level", curlvl)
-	// 	// 		.addField("Deine XP: ", curxp)
-	// 	// }
-	// }
-
-
 
 	if (message.content.toLowerCase() == 'hhelp') {
 		let embed = new Discord.MessageEmbed()
