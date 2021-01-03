@@ -120,6 +120,7 @@ client.on('message', message => {
 
 	if (message.content.toLowerCase() == 'hinfo') {
 		let embed = new Discord.MessageEmbed()
+
 			.setColor("BLUE")
 			.setTitle("Über Hydrablades")
 			.setDescription('Alle wichtigen Infos über den Hydrablades Bot.')
@@ -128,7 +129,7 @@ client.on('message', message => {
 			.addField("Discord.js Version", 'V12')
 			.addField("Node.js Version", "v14.15.0")
 			.addField("Hilfe", 'Hilfe zu den Befehlen des Hydrablades Bots bekommst du mit hHelp.')
-			.addField("Test", 'Test bestanden')
+
 		message.channel.send(embed)
 	}
 
