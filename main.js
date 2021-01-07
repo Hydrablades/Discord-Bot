@@ -31,75 +31,41 @@ client.on('message', message => {
 
 	let channel = message.channel;
 	
-	// if (message.author.bot) return;
-	// if (!db[message.author.id]) db[message.author.id] = {
+	if (message.author.bot) return;
+	if (!db[message.author.id]) db[message.author.id] = {
 
-	// 	xp: 0,
-	// 	level: 0,
+		xp: 0,
+		level: 0,
 
-	// };
-
+	};
 	
-	// const userInfo = db[message.author.id].xp++
+	const userInfo = db[message.author.id].xp++
 	
-	// if (userInfo.xp > 100) {
-	// 	let user = message.author.username;
+	if (userInfo.xp > 100) {
+		let user = message.author.username;
 
-	// 	userInfo.level++
-	// 	userInfo.xp = 0
-	// 	message.channel.send(`Glückwunsch ${user}, du bist ein Level aufgestiegen!`);
+		userInfo.level++
+		userInfo.xp = 0
+		message.channel.send(`Glückwunsch ${user}, du bist ein Level aufgestiegen!`);
 
-	// }
+	}
 
-	// if (message.content.toLowerCase() == 'hlevel') {
-	// 	let user = message.author.username;
-	// 	let userInfo = db[message.author.id];
-	// 	let embed = new Discord.MessageEmbed()
-	// 		.setColor("WHITE")
-	// 		.setTitle(`${user}`)
-	// 		.addField("Dein Level", userInfo.level)
-	// 		.addField("Deine XP", userInfo.xp + "/100")
-	// 	message.channel.send(embed)
+	if (message.content.toLowerCase() == 'hlevel') {
+		let user = message.author.username;
+		let userInfo = db[message.author.id];
+		let embed = new Discord.MessageEmbed()
+			.setColor("WHITE")
+			.setTitle(`${user}`)
+			.addField("Dein Level", userInfo.level)
+			.addField("Deine XP", userInfo.xp + "/100")
+		message.channel.send(embed)
 
-	// }
-
-
-	// fs.writeFile("./database.json", JSON.stringify(db), (x) => {
-	// 	if (x) console.error(X)
-	// });
+	}
 
 
-	// let score;
-    // if (message.guild) {
-    //     score = client.getScore.get(message.author.id, message.guild.id);
-    //     if (!score) {
-    //         score = {
-    //             id: `${message.guild.id}-${message.author.id}`,
-    //             user: message.author.id,
-    //             guild: message.guild.id,
-    //             points: 0,
-    //             level: 1,
-    //         };
-    //     }
-    //     const xpAdd = Math.floor(Math.random() * 10) + 50;
-    //     const curxp = score.points;
-    //     const curlvl = score.level;
-    //     const nxtLvl = score.level * 5000;
-    //     score.points = curxp + xpAdd;
-    //     if (nxtLvl <= score.points) {
-    //         score.level = curlvl + 1;
-    //         const lvlup = new MessageEmbed()
-    //             .setAuthor(
-    //                 `Congrats ${message.author.username}`,
-    //                 message.author.displayAvatarURL()
-    //             )
-    //             .setTitle('You have leveled up!')
-    //             .setColor("RANDOM")
-    //             .addField('New Level', curlvl + 1);
-    //     }
-    //     client.setScore.run(score);
-    // }
-
+	fs.writeFile("./database.json", JSON.stringify(db), (x) => {
+		if (x) console.error(X)
+	});
 
 	if (message.content.toLowerCase() == 'hhelp') {
 		let embed = new Discord.MessageEmbed()
