@@ -36,20 +36,22 @@ client.on('message', message => {
 	if (message.author.bot) return;
 	if (!db[message.author.id]) db[message.author.id] = {
 
-		xp = 0,
-		level = 0,
+		xp: 0,
+		level: 0,
 
 	};
 	
-	const userInfo = db[message.author.id].xp++;
+	
 
 	// if(message.author == Discord.User) {
 	// 	xp + 20;
 	// }
-
+	
+	db[message.author.id].xp + 10;
+	const userInfo = db[message.author.id].xp;
 	if (userInfo.xp > 100) {
+		
 		let user = message.author.username;
-
 		userInfo.level++
 		userInfo.xp = 0
 		message.channel.send(`Glückwunsch ${user}, du bist ein Level aufgestiegen!`);
