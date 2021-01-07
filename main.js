@@ -42,7 +42,7 @@ client.on('message', message => {
 	db[message.author.id].xp + Math.floor(Math.random() * 10) + 50
 	let userInfo = db[message.author.id];
 	if (userInfo.xp > 100) {
-		let user = message.author.id;
+		let user = message.author.username;
 
 		userInfo.level++
 		userInfo.xp = 0
@@ -51,7 +51,7 @@ client.on('message', message => {
 	}
 
 	if (message.content.toLowerCase() == 'hlevel') {
-		let user = message.author.id;
+		let user = message.author.username;
 		let userInfo = db[message.author.id];
 		let embed = new Discord.MessageEmbed()
 			.setColor("WHITE")
