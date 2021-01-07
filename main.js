@@ -44,7 +44,7 @@ client.on('message', message => {
 	const userInfo = db[message.author.id];
 
 	if(message.author == Discord.User) {
-		xp + Math.floor(Math.random() * 10) + 50;
+		xp + 20;
 	}
 
 	if (userInfo.xp > 100) {
