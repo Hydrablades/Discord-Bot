@@ -18,7 +18,6 @@ client.on('ready', () => {
 });
 
 
-
 client.on('message', message => {
 
 	client.on('guildMemberAdd', member => {
@@ -31,8 +30,7 @@ client.on('message', message => {
 	});
 
 	let channel = message.channel;
-	const user = message.mentions.users.first();
-
+	
 	if (message.author.bot) return;
 	if (!db[message.author.id]) db[message.author.id] = {
 
@@ -44,15 +42,16 @@ client.on('message', message => {
 	db[message.author.id].xp + Math.floor(Math.random() * 10) + 50
 	let userInfo = db[message.author.id];
 	if (userInfo.xp > 100) {
+		let user = message.author.id;
 
 		userInfo.level++
 		userInfo.xp = 0
-		message.channel.send(`Glückwunsch, du bist ein Level aufgestiegen!`);
+		message.channel.send(`Glückwunsch ${user}, du bist ein Level aufgestiegen!`);
 
 	}
 
 	if (message.content.toLowerCase() == 'hlevel') {
-
+		let user = message.author.id;
 		let userInfo = db[message.author.id];
 		let embed = new Discord.MessageEmbed()
 			.setColor("WHITE")
