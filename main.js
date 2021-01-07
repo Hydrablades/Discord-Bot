@@ -71,7 +71,7 @@ client.on('message', message => {
 
 	let score;
     if (message.guild) {
-        score = bot.getScore.get(message.author.id, message.guild.id);
+        score = client.getScore.get(message.author.id, message.guild.id);
         if (!score) {
             score = {
                 id: `${message.guild.id}-${message.author.id}`,
@@ -97,7 +97,7 @@ client.on('message', message => {
                 .setColor("RANDOM")
                 .addField('New Level', curlvl + 1);
         }
-        bot.setScore.run(score);
+        client.setScore.run(score);
     }
 
 
