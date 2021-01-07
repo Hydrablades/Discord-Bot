@@ -69,36 +69,36 @@ client.on('message', message => {
 	// });
 
 
-	let score;
-    if (message.guild) {
-        score = client.getScore.get(message.author.id, message.guild.id);
-        if (!score) {
-            score = {
-                id: `${message.guild.id}-${message.author.id}`,
-                user: message.author.id,
-                guild: message.guild.id,
-                points: 0,
-                level: 1,
-            };
-        }
-        const xpAdd = Math.floor(Math.random() * 10) + 50;
-        const curxp = score.points;
-        const curlvl = score.level;
-        const nxtLvl = score.level * 5000;
-        score.points = curxp + xpAdd;
-        if (nxtLvl <= score.points) {
-            score.level = curlvl + 1;
-            const lvlup = new MessageEmbed()
-                .setAuthor(
-                    `Congrats ${message.author.username}`,
-                    message.author.displayAvatarURL()
-                )
-                .setTitle('You have leveled up!')
-                .setColor("RANDOM")
-                .addField('New Level', curlvl + 1);
-        }
-        client.setScore.run(score);
-    }
+	// let score;
+    // if (message.guild) {
+    //     score = client.getScore.get(message.author.id, message.guild.id);
+    //     if (!score) {
+    //         score = {
+    //             id: `${message.guild.id}-${message.author.id}`,
+    //             user: message.author.id,
+    //             guild: message.guild.id,
+    //             points: 0,
+    //             level: 1,
+    //         };
+    //     }
+    //     const xpAdd = Math.floor(Math.random() * 10) + 50;
+    //     const curxp = score.points;
+    //     const curlvl = score.level;
+    //     const nxtLvl = score.level * 5000;
+    //     score.points = curxp + xpAdd;
+    //     if (nxtLvl <= score.points) {
+    //         score.level = curlvl + 1;
+    //         const lvlup = new MessageEmbed()
+    //             .setAuthor(
+    //                 `Congrats ${message.author.username}`,
+    //                 message.author.displayAvatarURL()
+    //             )
+    //             .setTitle('You have leveled up!')
+    //             .setColor("RANDOM")
+    //             .addField('New Level', curlvl + 1);
+    //     }
+    //     client.setScore.run(score);
+    // }
 
 
 	if (message.content.toLowerCase() == 'hhelp') {
