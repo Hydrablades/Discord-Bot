@@ -41,7 +41,7 @@ client.on('message', message => {
 
 	};
 	
-	const userInfo = db[message.author.id].xp + 10;
+	const userInfo = db[message.author.id].xp++;
 
 	// if(message.author == Discord.User) {
 	// 	xp + 20;
