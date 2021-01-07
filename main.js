@@ -102,6 +102,15 @@ client.on('message', message => {
 		message.channel.send(embed)
 	};
 
+	if(message.content.toLowerCase() == 'hvorschlag') {
+		let embed = new Discord.MessageEmbed()
+			.setColor("RANDOM")
+			.setTitle("Hier könnt ihr Vorschläge für den Bot da lassen:")
+			.addField("Klick")
+			.setURL("https://docs.google.com/document/d/1iay2mCh7vIv05IoZU1tY-2VgKYP3XkkOv2Wm4pny75I/edit?usp=sharing")
+		message.channel.send(embed)
+	};
+
 	if (message.content.toLowerCase() == 'hserverinfo') {
 		let embed = new Discord.MessageEmbed()
 			.setColor("DARKBLUE")
