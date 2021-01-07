@@ -39,7 +39,10 @@ client.on('message', message => {
 
 	};
 
-	db[message.author.id].xp + Math.floor(Math.random() * 10) + 50
+	
+
+	db[message.author.id].randomXP;
+	let randomXP = xp + Math.floor(Math.random() * 10) + 50;
 	let userInfo = db[message.author.id];
 	if (userInfo.xp > 100) {
 		let user = message.author.username;
