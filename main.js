@@ -30,9 +30,7 @@ client.on('message', message => {
 	});
 
 	let channel = message.channel;
-	// const xp = 0;
-	// const level = 0;
-	
+		
 	if (message.author.bot) return;
 	if (!db[message.author.id]) db[message.author.id] = {
 
@@ -41,13 +39,7 @@ client.on('message', message => {
 
 	};
 	
-	
-
-	// if(message.author == Discord.User) {
-	// 	xp + 20;
-	// }
-	
-	db[message.author.id].xp + 10;
+	db[message.author.id].xp++;
 	const userInfo = db[message.author.id].xp;
 	if (userInfo.xp > 100) {
 		
