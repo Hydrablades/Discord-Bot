@@ -30,17 +30,23 @@ client.on('message', message => {
 	});
 
 	let channel = message.channel;
+	const xp = 0;
+	const level = 0;
 	
 	if (message.author.bot) return;
 	if (!db[message.author.id]) db[message.author.id] = {
 
-		xp: 0,
-		level: 0,
+		xp,
+		level,
 
 	};
 	
-	const userInfo = db[message.author.id].xp++
-	
+	const userInfo = db[message.author.id];
+
+	if(message.author == Discord.User) {
+		xp + Math.floor(Math.random() * 10) + 50;
+	}
+
 	if (userInfo.xp > 100) {
 		let user = message.author.username;
 
