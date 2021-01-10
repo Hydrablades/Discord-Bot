@@ -15,6 +15,14 @@ let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 
 client.on('ready', () => {
 	console.log('I am ready!');
+
+	client.user.setPresence({
+		status: "online",
+		game: {
+			name: "hHelp",
+			type: "PLAYING"
+		}
+	})
 });
 
 
