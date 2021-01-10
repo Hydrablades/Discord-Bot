@@ -15,8 +15,6 @@ let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 
 client.on('ready', () => {
 	console.log('I am ready!');
-
-	bot.user.setActivity(`this won't appear in the bot's custom status!`, {type: 4})
 });
 
 
