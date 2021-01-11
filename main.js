@@ -30,7 +30,6 @@ client.on('message', message => {
 
 	});
 
-	const LvlUpUser = message.author.username;
 	let channel = message.channel;
 		
 	if (message.author.bot) return;
@@ -44,7 +43,8 @@ client.on('message', message => {
 	db[message.author.id].xp++;
 	let userInfo = db[message.author.id];
 	if (userInfo.xp > 100) {
-
+		
+		let LvlUpUser = message.author.username;
 		userInfo.level++
 		userInfo.xp = 0
 		message.channel.send(`Glückwunsch ${LvlUpUser}, du bist ein Level aufgestiegen!`);
@@ -52,6 +52,7 @@ client.on('message', message => {
 	}
 
 	if (message.content.toLowerCase() == 'hlevel') {
+		let LvlUpUser = message.author.username;
 		let userInfo = db[message.author.id];
 		let embed = new Discord.MessageEmbed()
 			.setColor("WHITE")
