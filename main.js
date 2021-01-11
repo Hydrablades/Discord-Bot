@@ -40,13 +40,17 @@ client.on('message', message => {
 
 	};
 	
-	db[message.author.id].xp++;
+	if (!db[message.author.id]) db[message.author.id] = {
+        xp: 0,
+        level: 0
+      };
+    db[message.author.id].xp++;
 	let userInfo = db[message.author.id];
-	if (userInfo.xp > 100) {
-		
-		let LvlUpUser = message.author.username;
-		userInfo.level++
-		userInfo.xp = 0
+	let LvlUpUser = message.author.username;
+    if(userInfo.xp > 100) {
+
+        userInfo.level++
+        userInfo.xp = 0
 		message.channel.send(`Glückwunsch ${LvlUpUser}, du bist ein Level aufgestiegen!`);
 
 	}
