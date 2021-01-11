@@ -14,21 +14,25 @@ let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 
 client.on('ready', () => {
 	console.log('I am ready!');
+
+	client.user.setActivity("Playing Assassins Creed Origins", {
+		type: "PLAYING"
+	});
+
 });
 
+client.on('guildMemberAdd', member => {
+
+	const channel = member.guild.channels.find(channel => channel.name === "willkommen");
+	if (!channel) return;
+
+	channel.send(`Wilkommen auf dem Server ${member}, bitte lese dir die Regeln durch!`)
+
+});
 
 client.on('message', message => {
 
-	client.on('guildMemberAdd', member => {
-
-		const channel = member.guild.channels.find(channel => channel.name == "willkommen");
-		if (!channel) return;
-
-		channel.send(`Wilkommen auf dem Server ${member}, bitte lese dir die Regeln durch!`);
-
-	});
-
-	let channel = message.channel;
+		let channel = message.channel;
 		
 	if (message.author.bot) return;
 	if (!db[message.author.id]) db[message.author.id] = {
