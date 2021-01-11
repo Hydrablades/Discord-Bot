@@ -4,9 +4,10 @@ require('dotenv').config();
 
 // Loading discord token from .env file
 const envVariables = process.env;
-const TOKEN = envVariables.TOKEN
+const TOKEN = envVariables.TOKEN;
 
 
+const LvlUpUser = message.author.username;
 const client = new Discord.Client(); // Create Discord client for connection to Discord
 
 
@@ -29,6 +30,7 @@ client.on('message', message => {
 
 	});
 
+	const LvlUpUser = message.author.username;
 	let channel = message.channel;
 		
 	if (message.author.bot) return;
@@ -40,22 +42,20 @@ client.on('message', message => {
 	};
 	
 	db[message.author.id].xp++;
-	const userInfo = db[message.author.id].xp;
+	let userInfo = db[message.author.id];
 	if (userInfo.xp > 100) {
-		
-		let user = message.author.username;
+
 		userInfo.level++
 		userInfo.xp = 0
-		message.channel.send(`Glückwunsch ${user}, du bist ein Level aufgestiegen!`);
+		message.channel.send(`Glückwunsch ${LvlUpUser}, du bist ein Level aufgestiegen!`);
 
 	}
 
 	if (message.content.toLowerCase() == 'hlevel') {
-		let user = message.author.username;
 		let userInfo = db[message.author.id];
 		let embed = new Discord.MessageEmbed()
 			.setColor("WHITE")
-			.setTitle(`${user}`)
+			.setTitle(`${LvlUpUser}`)
 			.addField("Dein Level", userInfo.level)
 			.addField("Deine XP", userInfo.xp + "/100")
 		message.channel.send(embed)
