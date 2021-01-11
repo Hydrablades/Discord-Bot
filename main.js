@@ -45,7 +45,7 @@ client.on('message', message => {
     db[message.author.id].xp++;
 	let userInfo = db[message.author.id];
 	let LvlUpUser = message.author.username;
-    if(userInfo.xp > 100) {
+    if(userInfo.xp > 10) {
 
         userInfo.level++
         userInfo.xp = 0
