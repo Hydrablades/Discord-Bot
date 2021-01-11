@@ -6,8 +6,6 @@ require('dotenv').config();
 const envVariables = process.env;
 const TOKEN = envVariables.TOKEN;
 
-
-const LvlUpUser = message.author.username;
 const client = new Discord.Client(); // Create Discord client for connection to Discord
 
 
