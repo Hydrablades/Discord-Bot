@@ -15,7 +15,8 @@ let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 client.on('ready', () => {
 	console.log('I am ready!');
 
-	client.user.setActivity("Playing Assassins Creed Origins", {
+	//Setting a custom Status for my Bot
+	client.user.setActivity("hHelp für Hilfe", {  //In the "" can be anything you like
 		type: "PLAYING"
 	});
 
