@@ -16,7 +16,7 @@ client.on('ready', () => {
 	console.log('I am ready!');
 
 	//Setting a custom Status for my Bot
-	client.user.setActivity("hHelp für Hilfe", {  //In the "" can be anything you like
+	client.user.setActivity("hHelp | discord.gg/eBay4Ppk", {  //In the "" can be anything you like
 		type: "PLAYING"
 	});
 
