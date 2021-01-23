@@ -16,7 +16,7 @@ client.on('ready', () => {
 	console.log('I am ready!');
 
 	//Setting a custom Status for my Bot
-	client.user.setActivity("hHelp | discord.gg/eBay4Ppk", {  //In the "" can be anything you like
+	client.user.setActivity("hHelp | discord.gg/UrqjArnp", {  //In the "" can be anything you like
 		type: "PLAYING"
 	});
 
@@ -57,6 +57,8 @@ client.on('message', message => {
 		message.channel.send(`Glückwunsch ${LvlUpUser}, du bist ein Level aufgestiegen!`);
 
 	}
+
+	
 
 	if (message.content.toLowerCase() == 'hlevel') {
 		let LvlUpUser = message.author.username;
@@ -139,9 +141,9 @@ client.on('message', message => {
 			.setColor("BLUE")
 			.setTitle("Über Hydrablades")
 			.setDescription('Alle wichtigen Infos über den Hydrablades Bot.')
-			.addField("Bot Version", 'Beta 1.0.0')
+			.addField("Bot Version", 'v1.3.0')
 			.addField("Source Code", "https://github.com/Hydrablades/Discord-Bot")
-			.addField("Discord.js Version", 'V12')
+			.addField("Discord.js Version", 'v12')
 			.addField("Node.js Version", "v14.15.0")
 			.addField("Hilfe", 'Hilfe zu den Befehlen des Hydrablades Bots bekommst du mit hHelp.')
 
