@@ -26,6 +26,7 @@ client.on('guildMemberAdd', member => {
 
     let welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
 
+	let servericon = message.guild.iconURL();
     let embed = new Discord.MessageEmbed()
         .setColor("GREEN")
         .setTitle(`Willkommen auf dem Server ${member.user.username}`)
@@ -33,7 +34,7 @@ client.on('guildMemberAdd', member => {
         .addField("Custom Rollen kannst du dir hier abholen:", '<#735132918833479761>')
         .addField("Hier kannst du dich vorstellen:", '<#735114521567297536>')
         .setImage('https://cdn.discordapp.com/attachments/798613344809779252/808372720957652992/hitman.gif')
-        .setThumbnail(message.guild.iconURL())
+        .setThumbnail(servericon)
         .addField("**Viel Spaß auf dem Server!**", '~Server Team')
             
     welcomeChannel.send(embed)
@@ -95,6 +96,8 @@ client.on('message', message => {
 			.addField("hInvite", 'Generiert den Einladungslink für den Hydrablades Bot, um ihn auf deinen eigenen Server einzuladen.')
 			.addField("hServerInfo", 'Alle wichtigen Informationen über diesen Server.')
 			.addField("hInfo", 'Alle relevanten Infos über den Hydrablades Bot.')
+			.addField("hLevel", 'Euer aktuelles Level und eure XP')
+			.addField("hVorschlag", 'Gibt euch den Link zu einem Google Docs Dokument in welches ihr Vorschläge für den Bot schreiben könnt')
 			.addField("hKick", 'Kickt Mitglieder des Servers (Nur Personen mit Moderationsberechtigungen).')
 		//  .addField("hCredits", 'With friendly support of best daddy on earth')
 		message.channel.send(embed)
