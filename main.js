@@ -34,6 +34,7 @@ client.on('guildMemberAdd', member => {
         .addField("Custom Rollen kannst du dir hier abholen:", '<#735132918833479761>')
         .addField("Hier kannst du dich vorstellen:", '<#735114521567297536>')
 		.setImage('https://cdn.discordapp.com/attachments/798613344809779252/808372720957652992/hitman.gif')
+		.addThumbnail('https://cdn.discordapp.com/attachments/754068965818630145/808384711582941255/all_around_gaming_icon.jpg')
         .addField("**Viel Spaß auf dem Server!**", '~Server Team')
             
     welcomeChannel.send(embed)
