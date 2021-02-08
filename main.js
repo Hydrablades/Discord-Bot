@@ -150,7 +150,7 @@ client.on('message', message => {
 			.setColor("BLUE")
 			.setTitle("Über Hydrablades")
 			.setDescription('Alle wichtigen Infos über den Hydrablades Bot.')
-			.addField("Bot Version", 'v1.3.0')
+			.addField("Bot Version", 'v1.4.0')
 			.addField("Source Code", "https://github.com/Hydrablades/Discord-Bot")
 			.addField("Discord.js Version", 'v12')
 			.addField("Node.js Version", "v14.15.0")
