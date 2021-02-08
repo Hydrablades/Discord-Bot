@@ -26,15 +26,15 @@ client.on('guildMemberAdd', member => {
 
     let welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
 
-	let servericon = message.guild.iconURL();
+	let servericon = guild.iconURL();
     let embed = new Discord.MessageEmbed()
         .setColor("GREEN")
         .setTitle(`Willkommen auf dem Server ${member.user.username}`)
         .addField("Die Regeln findest du hier:", '<#735111514784006185>')
         .addField("Custom Rollen kannst du dir hier abholen:", '<#735132918833479761>')
         .addField("Hier kannst du dich vorstellen:", '<#735114521567297536>')
-        .setImage('https://cdn.discordapp.com/attachments/798613344809779252/808372720957652992/hitman.gif')
-        .setThumbnail(servericon)
+		.setImage('https://cdn.discordapp.com/attachments/798613344809779252/808372720957652992/hitman.gif')
+		.setThumbnail(servericon)
         .addField("**Viel Spaß auf dem Server!**", '~Server Team')
             
     welcomeChannel.send(embed)
