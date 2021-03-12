@@ -43,49 +43,49 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', message => {
 
-		let channel = message.channel;
+	let channel = message.channel;
 		
 	if (message.author.bot) return;
-	if (!db[message.author.id]) db[message.author.id] = {
+	// if (!db[message.author.id]) db[message.author.id] = {
 
-		xp: 0,
-		level: 0,
+	// 	xp: 0,
+	// 	level: 0,
 
-	};
+	// };
 	
-	if (!db[message.author.id]) db[message.author.id] = {
-        xp: 0,
-        level: 0
-      };
-    db[message.author.id].xp++;
-	let userInfo = db[message.author.id];
-	let LvlUpUser = message.author.username;
-    if(userInfo.xp > 100) {
+	// if (!db[message.author.id]) db[message.author.id] = {
+    //     xp: 0,
+    //     level: 0
+    //   };
+    // db[message.author.id].xp++;
+	// let userInfo = db[message.author.id];
+	// let LvlUpUser = message.author.username;
+    // if(userInfo.xp > 100) {
 
-        userInfo.level++
-        userInfo.xp = 0
-		message.channel.send(`Glückwunsch ${LvlUpUser}, du bist ein Level aufgestiegen!`);
+    //     userInfo.level++
+    //     userInfo.xp = 0
+	// 	message.channel.send(`Glückwunsch ${LvlUpUser}, du bist ein Level aufgestiegen!`);
 
-	}
+	// }
 
 	
 
-	if (message.content.toLowerCase() == 'hlevel') {
-		let LvlUpUser = message.author.username;
-		let userInfo = db[message.author.id];
-		let embed = new Discord.MessageEmbed()
-			.setColor("WHITE")
-			.setTitle(`${LvlUpUser}`)
-			.addField("Dein Level", userInfo.level)
-			.addField("Deine XP", userInfo.xp + "/100")
-		message.channel.send(embed)
+	// if (message.content.toLowerCase() == 'hlevel') {
+	// 	let LvlUpUser = message.author.username;
+	// 	let userInfo = db[message.author.id];
+	// 	let embed = new Discord.MessageEmbed()
+	// 		.setColor("WHITE")
+	// 		.setTitle(`${LvlUpUser}`)
+	// 		.addField("Dein Level", userInfo.level)
+	// 		.addField("Deine XP", userInfo.xp + "/100")
+	// 	message.channel.send(embed)
 
-	}
+	// }
 
 
-	fs.writeFile("./database.json", JSON.stringify(db), (x) => {
-		if (x) console.error(X)
-	});
+	// fs.writeFile("./database.json", JSON.stringify(db), (x) => {
+	// 	if (x) console.error(X)
+	// });
 
 	if (message.content.toLowerCase() == 'hhelp') {
 		let embed = new Discord.MessageEmbed()
@@ -101,6 +101,22 @@ client.on('message', message => {
 			.addField("hKick", 'Kickt Mitglieder des Servers (Nur Personen mit Moderationsberechtigungen).')
 		//  .addField("hCredits", 'With friendly support of best daddy on earth')
 		message.channel.send(embed)
+	}
+
+	if(msg.content.toLowerCase() == 'hsay'){
+		let hsay = msg.shift()
+
+		/* This takes the sentence sent, and makes it an array. In this case, a list of words. It 'splits' the list up wherever it sees space.*/
+		let sentence = msg.content.split(" ");
+		
+		/* .shift(), alters the list. It removes the first thing in the list. This would be the "!say" word. If we assigned shift() to a variable. Like "let x = msg.shift()" ... "x" would be the word that was removed. This is handy for grabbing command words. If you used shift() again, it would remove the second, then the third, each time that you type it.*/
+		sentence.shift();
+	
+		// Now join the list back together into a sentence with "join()" and set that as the new sentence.
+		sentence = sentence.join(" ");
+	
+		msg.channel.send(sentence);
+	
 	}
 
 	if (!message.guild) return;
