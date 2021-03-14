@@ -190,6 +190,15 @@ client.on('message', message => {
 		}
 	}
 
+	if(message.content.toLowerCase() == 'htest') {
+        
+        let embed = new Discord.MessageEmbed()
+            .setColor("RANDOM")
+            .addField("Test", 'Test 1 bestanden')
+            
+        message.channel.send(embed)
+    }
+
 });
 
 
