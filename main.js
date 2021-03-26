@@ -45,48 +45,6 @@ client.on('message', message => {
 
 	let channel = message.channel;
 		
-	// if (message.author.bot) return;
-	// if (!db[message.author.id]) db[message.author.id] = {
-
-	// 	xp: 0,
-	// 	level: 0,
-
-	// };
-	
-	// if (!db[message.author.id]) db[message.author.id] = {
-    //     xp: 0,
-    //     level: 0
-    //   };
-    // db[message.author.id].xp++;
-	// let userInfo = db[message.author.id];
-	// let LvlUpUser = message.author.username;
-    // if(userInfo.xp > 100) {
-
-    //     userInfo.level++
-    //     userInfo.xp = 0
-	// 	message.channel.send(`Glückwunsch ${LvlUpUser}, du bist ein Level aufgestiegen!`);
-
-	// }
-
-	
-
-	// if (message.content.toLowerCase() == 'hlevel') {
-	// 	let LvlUpUser = message.author.username;
-	// 	let userInfo = db[message.author.id];
-	// 	let embed = new Discord.MessageEmbed()
-	// 		.setColor("WHITE")
-	// 		.setTitle(`${LvlUpUser}`)
-	// 		.addField("Dein Level", userInfo.level)
-	// 		.addField("Deine XP", userInfo.xp + "/100")
-	// 	message.channel.send(embed)
-
-	// }
-
-
-	// fs.writeFile("./database.json", JSON.stringify(db), (x) => {
-	// 	if (x) console.error(X)
-	// });
-
 	if (message.content.toLowerCase() == 'hhelp') {
 		let embed = new Discord.MessageEmbed()
 			.setColor("RED")
@@ -99,7 +57,7 @@ client.on('message', message => {
 			.addField("hLevel", 'Euer aktuelles Level und eure XP')
 			.addField("hVorschlag", 'Gibt euch den Link zu einem Google Docs Dokument in welches ihr Vorschläge für den Bot schreiben könnt')
 			.addField("hKick", 'Kickt Mitglieder des Servers (Nur Personen mit Moderationsberechtigungen).')
-		//  .addField("hCredits", 'With friendly support of best daddy on earth')
+		
 		message.channel.send(embed)
 	}
 
@@ -164,7 +122,7 @@ client.on('message', message => {
 
 	if (!message.guild) return;
 	if (message.content.toLowerCase() == 'hkick') {
-		const user = message.mentions.users.first();
+		
 		if (user) {
 			const member = message.guild.member(user);
 			if (member) {
