@@ -9,9 +9,6 @@ const TOKEN = envVariables.TOKEN;
 const client = new Discord.Client(); // Create Discord client for connection to Discord
 
 
-const fs = require("fs");
-let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
-
 client.on('ready', () => {
 	console.log('I am ready!');
 
