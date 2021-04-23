@@ -41,6 +41,10 @@ client.on('guildMemberAdd', member => {
 client.on('message', message => {
 
 	let channel = message.channel;
+
+	if(message.content.startsWith("!")){
+		message.delete();
+	};
 		
 	if (message.content.toLowerCase() == 'hhelp') {
 		let embed = new Discord.MessageEmbed()
