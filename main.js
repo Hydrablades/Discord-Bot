@@ -13,7 +13,7 @@ client.on('ready', () => {
 	console.log('I am ready!');
 
 	//Setting a custom Status for my Bot
-	client.user.setActivity("hHelp | discord.gg/UrqjArnp", {  //In the "" can be anything you like
+	client.user.setActivity("hHelp", {  //In the "" can be anything you like
 		type: "PLAYING"
 	});
 
