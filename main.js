@@ -33,7 +33,7 @@ client.on('guildMemberAdd', member => {
 		.setImage('https://cdn.discordapp.com/attachments/798613344809779252/808372720957652992/hitman.gif')
 		.setThumbnail('https://cdn.discordapp.com/attachments/754068965818630145/808384711582941255/all_around_gaming_icon.jpg')
         .addField("**Viel Spaß auf dem Server!**", '~Server Team')
-            
+    welcomeChannel.send(`Hey <@${member.id}>!`)
     welcomeChannel.send(embed)
 
 });
