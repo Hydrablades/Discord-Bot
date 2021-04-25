@@ -51,7 +51,6 @@ client.on('message', message => {
 			.addField("hInvite", 'Generiert den Einladungslink für den Hydrablades Bot, um ihn auf deinen eigenen Server einzuladen.')
 			.addField("hServerInfo", 'Alle wichtigen Informationen über diesen Server.')
 			.addField("hInfo", 'Alle relevanten Infos über den Hydrablades Bot.')
-			.addField("hLevel", 'Euer aktuelles Level und eure XP')
 			.addField("hVorschlag", 'Gibt euch den Link zu einem Google Docs Dokument in welches ihr Vorschläge für den Bot schreiben könnt')
 			.addField("hKick", 'Kickt Mitglieder des Servers (Nur Personen mit Moderationsberechtigungen).')
 		
@@ -108,7 +107,7 @@ client.on('message', message => {
 			.setColor("BLUE")
 			.setTitle("Über Hydrablades")
 			.setDescription('Alle wichtigen Infos über den Hydrablades Bot.')
-			.addField("Bot Version", 'v1.4.0')
+			.addField("Bot Version", 'v1.5.0')
 			.addField("Source Code", "https://github.com/Hydrablades/Discord-Bot")
 			.addField("Discord.js Version", 'v12')
 			.addField("Node.js Version", "v14.15.0")
