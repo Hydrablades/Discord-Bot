@@ -116,34 +116,6 @@ client.on('message', message => {
 		message.channel.send(embed)
 	}
 
-	if (!message.guild) return;
-	if (message.content.toLowerCase() == 'hkick') {
-		
-		if (user) {
-			const member = message.guild.member(user);
-			if (member) {
-				member
-					.kick('Optionaler Grund für den Audit-log.')
-					.then(() => {
-
-						message.reply(`${user} wurde erfolgreich gekickt`);
-					})
-					.catch(err => {
-
-						message.reply(`${user} konnte nicht gekickt werden.`);
-
-						console.error(err);
-					});
-			}
-			else {
-				message.reply('Dieser User ist nicht auf dem Server.');
-			}
-		}
-		else {
-			message.reply('Wen willst du kicken?');
-		}
-	}
-
 	if(message.content.toLowerCase() == 'htest') {
         
         let embed = new Discord.MessageEmbed()
