@@ -51,8 +51,6 @@ client.on('message', message => {
 			.addField("hInvite", 'Generiert den Einladungslink für den Hydrablades Bot, um ihn auf deinen eigenen Server einzuladen.')
 			.addField("hServerInfo", 'Alle wichtigen Informationen über diesen Server.')
 			.addField("hInfo", 'Alle relevanten Infos über den Hydrablades Bot.')
-			.addField("hVorschlag", 'Gibt euch den Link zu einem Google Docs Dokument in welches ihr Vorschläge für den Bot schreiben könnt')
-			.addField("hKick", 'Kickt Mitglieder des Servers (Nur Personen mit Moderationsberechtigungen).')
 		
 		message.channel.send(embed)
 	}
@@ -67,7 +65,7 @@ client.on('message', message => {
 					.setDescription("Hier ist dein Einladungsklink für diesen Server: https://discord.gg/" + invite.code)
 				message.channel.send(embed)
 			}
-			)
+		)
 	}
 
 	if (message.content.toLowerCase() == 'hinvite') {
@@ -75,14 +73,6 @@ client.on('message', message => {
 			.setColor("YELLOW")
 			.setTitle("Dein Einladungslink um den Bot auf deinen Server zu holen")
 			.setURL("https://discord.com/api/oauth2/authorize?client_id=726742234652737626&permissions=8&redirect_uri=http%3A%2F%2Flocalhost%3A53134&scope=bot")
-		message.channel.send(embed)
-	};
-
-	if(message.content.toLowerCase() == 'hvorschlag') {
-		let embed = new Discord.MessageEmbed()
-			.setColor("RANDOM")
-			.setTitle("Hier könnt ihr Vorschläge für den Bot da lassen")
-			.setURL("https://docs.google.com/document/d/1iay2mCh7vIv05IoZU1tY-2VgKYP3XkkOv2Wm4pny75I/edit?usp=sharing")
 		message.channel.send(embed)
 	};
 
@@ -107,7 +97,7 @@ client.on('message', message => {
 			.setColor("BLUE")
 			.setTitle("Über Hydrablades")
 			.setDescription('Alle wichtigen Infos über den Hydrablades Bot.')
-			.addField("Bot Version", 'v1.5.0')
+			.addField("Bot Version", 'v1.6.0')
 			.addField("Source Code", "https://github.com/Hydrablades/Discord-Bot")
 			.addField("Discord.js Version", 'v12')
 			.addField("Node.js Version", "v14.15.0")
