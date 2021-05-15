@@ -111,6 +111,7 @@ client.on('message', message => {
 			.addField("Source Code", "https://github.com/Hydrablades/Discord-Bot")
 			.addField("Discord.js Version", 'v12')
 			.addField("Node.js Version", "v14.15.0")
+			.addField("Profilbild by", 'デイダラ Mxrsad#5529')
 			.addField("Hilfe", 'Hilfe zu den Befehlen des Hydrablades Bots bekommst du mit hHelp.')
 
 		message.channel.send(embed)
