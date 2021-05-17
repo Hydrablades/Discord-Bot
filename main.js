@@ -111,7 +111,7 @@ client.on('message', message => {
         
         let embed = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .addField("Test", 'Test 1 bestanden')
+            .addField("Test", 'Test 2 bestanden')
             
         message.channel.send(embed)
     }
